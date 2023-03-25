@@ -1,7 +1,7 @@
 class TestFunction {}
 
 fun main(args: Array<String>) {
-    range()
+    printProduct("1", "2")
 }
 
 /* ----- 함수 정의 ----- */
@@ -66,11 +66,11 @@ fun max2(a: Int, b: Int) = if (a > b) a else b
 // 값이 Null일 수 있는 경우 타입에 nullable을 '?' 기호를 사용해 명시
 fun parseInt(str: String): Int? {
     // 정수가 아닌경우 null 리턴
-    val parseInt = parseInt(str)
-    if (parseInt is Int) {
-        return parseInt
+    val value = str.toInt()
+    return if (value !is Int) {
+        null
     } else {
-        return null
+        value
     }
 }
 
@@ -79,11 +79,9 @@ fun printProduct(arg1: String, arg2: String) {
     val x: Int? = parseInt(arg1)
     val y: Int? = parseInt(arg2)
 
-    if (x != null && y != null) {
-        println(x * y)
-    } else {
-        println("either '$arg1' or '$arg2' is not a number")
-    }
+
+    println("either '$arg1' or '$arg2' is not a number")
+
 }
 
 
