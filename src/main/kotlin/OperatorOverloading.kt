@@ -23,16 +23,6 @@ class OperatorOverloading {
 
         // 결과값 : Point(x = -10, y = -20)
         println(-pointB)
-
-
-
-        /* ----- For-Each ----- */
-        val myData = MyData()
-        myData.iterator()
-
-        for (i in myData) {
-
-        }
     }
 
 
@@ -70,33 +60,6 @@ class OperatorOverloading {
     class Compare(val x: Int, val y: Int) {
         override fun equals(other: Any?): Boolean {
             return super.equals(other)
-        }
-    }
-
-
-
-    /* ----- 연산자 오버로딩을 이용한 For-Each ----- */
-    // 아래의 두 클래스로 인해
-    // Iterator를 가지고 있지 않는 MyData 객체가 For Each 문에 들어올 수 있다.
-
-    // next(), hasNext()를 가지고 있는 클래스
-    class MyIterator {
-        val data = listOf(1,2,3,4,5)
-        var idx = 0
-
-        operator fun hasNext() : Boolean {
-            return data.size > idx
-        }
-
-        operator fun next() : Int {
-            return data[idx++]
-        }
-    }
-
-    // MyIterator 객체를 반환하는 클래스
-    class MyData {
-        operator fun iterator() : MyIterator {
-            return MyIterator()
         }
     }
 }
